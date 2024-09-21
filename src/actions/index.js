@@ -27,7 +27,7 @@ export function fetchPostsWithQuery(name) {
             console.log(response.data.abilities);
             dispatch({
                 type: SET_RESULTS_POSTS,
-                payload: response.data.posts
+                payload: response.data.abilities
             })
         })
     }
