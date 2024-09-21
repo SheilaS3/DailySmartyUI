@@ -15,3 +15,17 @@ export function fetchRecentPosts() {
         })
     }
 }
+
+export function fetchPostsWithQuery(name) {
+    return function(dispatch) {
+        axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        .then(response => {
+            console.log(response.data.abilities);
+            // dispatch({
+            //     type: SET_RECENT_POSTS,
+            //     payload: response.data.posts
+            // })
+        })
+    }
+}    
