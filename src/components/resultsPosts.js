@@ -12,7 +12,7 @@ class ResultsPosts extends Component {
         })
         return posts;
     }
-
+    
     render() {
         return (
             <div className="results-posts">

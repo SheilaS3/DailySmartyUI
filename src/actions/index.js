@@ -1,3 +1,5 @@
+import NoPage from '../components/noPageFound';
+
 import { 
     SET_RECENT_POSTS,
     SET_RESULTS_POSTS 
@@ -28,6 +30,9 @@ export function fetchPostsWithQuery(name, callback) {
                 payload: response.data.abilities
             })
             if(callback) { callback() }
+        }).catch(error => {
+            console.log("API error", error)
+            return <NoPage />
         })
     }
 }    
