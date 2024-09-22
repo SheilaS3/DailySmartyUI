@@ -13,7 +13,6 @@ class NoPage extends Component {
                 <div className="no-page-found">
                     No page was found
                 </div>
-                
             </div>
         )
     }
