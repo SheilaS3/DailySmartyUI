@@ -2,17 +2,34 @@ import React, { Component } from 'react';
 
 class Post extends Component {
     render() {
-        return (
-            <li className="recent-post">
-                <div className="recent-post__title">
-                    {this.props.name}
-                </div>
+        if(this.props.type === 'recent') {
+            return (
+                <li className="pokemon">
+                    <div className="pokemon__name">
+                        {this.props.name}
+                    </div>
 
-                <div className="recent-post__topics">
-                    {this.props.url}
-                </div>
-            </li>
-        )
+                    <div className="pokemon__name">
+                        <a href={this.props.url}>API URL</a>
+                    </div>
+                </li>
+            )
+        } else if(this.props.type === 'result') {
+            return (
+                <li className="abilities">
+                    <div className='pokemon-name'>
+                        {this.props.name}
+                    </div>
+                    <div className="ability__name">
+                        {this.props.ability.name}
+                    </div>
+
+                    <div className="ability__url">
+                        <a href={this.props.ability.url}>API URL</a>
+                    </div>
+                </li>
+            )
+        }
     }
 }
 

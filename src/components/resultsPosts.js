@@ -7,8 +7,8 @@ import Post from './post';
 class ResultsPosts extends Component {
 
     renderPosts() {
-        const posts = this.props.posts.map((post, index) => {
-            return <Post {...post} key={index}/>
+        const posts = this.props.resultsPosts.map((post, index) => {
+            return <Post type="result" {...post} key={index}/>
         })
         return posts;
     }
@@ -28,7 +28,7 @@ class ResultsPosts extends Component {
 
 function mapStateToProps(state) {
     return { 
-        posts: state.posts.resultsPosts 
+        resultsPosts: state.posts.resultsPosts 
     }
 }
 
