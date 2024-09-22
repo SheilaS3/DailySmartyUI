@@ -10,7 +10,6 @@ export function fetchRecentPosts() {
         axios
         .get('https://pokeapi.co/api/v2/pokemon')
         .then(response => {
-            console.log(response.data.results);
             dispatch({
                 type: SET_RECENT_POSTS,
                 payload: response.data.results
@@ -19,16 +18,16 @@ export function fetchRecentPosts() {
     }
 }
 
-export function fetchPostsWithQuery(name) {
+export function fetchPostsWithQuery(name, callback) {
     return function(dispatch) {
         axios
         .get(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then(response => {
-            console.log(response.data.abilities);
             dispatch({
                 type: SET_RESULTS_POSTS,
                 payload: response.data.abilities
             })
+            if(callback) { callback() }
         })
     }
 }    
