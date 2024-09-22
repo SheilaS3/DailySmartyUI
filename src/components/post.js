@@ -13,24 +13,24 @@ class Post extends Component {
     render() {
         if(this.props.type === 'recent') {
             return (
-                <li className="pokemon">
-                    <div className="pokemon__name">
+                <li className="recent-post">
+                    <div className="recent-post__title">
                         {this.props.name}
                     </div>
 
-                    <div className="pokemon__name">
+                    <div className="recent-post__topics">
                         <a href={this.props.url}>API URL</a>
                     </div>
                 </li>
             )
         } else if(this.props.type === 'result') {
             return (
-                <li className="abilities">
-                    <div className="ability__name">
+                <li className="result-post">
+                    <div className="result-post__topics">
                         {this.props.ability.name}
                     </div>
 
-                    <div className='api'>
+                    <div className='result-post__title'>
                         <a href={this.props.ability.url}
                            onMouseEnter={() => this.setState({ height: 70 })}
                            onMouseLeave={() => this.setState({ height: 0 })}
@@ -43,7 +43,7 @@ class Post extends Component {
                         duration={500}
                         height={this.state.height}
                     >
-                        <div className="ability__url">
+                        <div className="result-post__links">
                             <a href={this.props.ability.url}>LINK</a>
                         </div>
                     </AnimateHeight>
