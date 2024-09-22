@@ -10,6 +10,26 @@ class Post extends Component {
         }
     }
 
+    getNameForPostLink(str) {
+        var n = str.lastIndexOf('v2/');
+        var link = str.substring(n + 3, str.length -1);
+
+        if((n+1) == str.length) {
+            link = str.slice(0, n);
+            n = link.lastIndexOf('v2/');
+            link = str.substring(n + 3, str.length - 1);
+        }    
+
+        if(link.includes('.html')) {
+            link = link.substring(0, link.length - 5);
+        }
+        if(link.includes('.htm')) {
+            link = link.substring(0, link.length - 4);
+        }
+
+        return link;
+    }
+
     render() {
         if(this.props.type === 'recent') {
             return (
@@ -47,7 +67,7 @@ class Post extends Component {
                             <div className='post-link'>
                                 <div className='post-link__box'></div>
                                 <div className='post-link__link'>
-                                    <a href={this.props.ability.url}>API LINK</a>
+                                    <a href={this.props.ability.url}>{this.getNameForPostLink(this.props.ability.url)}</a>
                                 </div>
                             </div>
                         </div>

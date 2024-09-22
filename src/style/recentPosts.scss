@@ -10,7 +10,7 @@
 
         .recent-posts__heading {
             color: $color-blue-one;
-            font-size: 14px;
+            font-size: 20px;
         }
         
         .recent-posts__posts {
@@ -18,6 +18,15 @@
             justify-content: space-evenly;
             grid-template-columns: 1fr 1fr 1fr;
             grid-gap: 42px;
+
+            text-decoration: none;
+            text-transform: capitalize;
+            font-size: 20px;
+
+            a {
+                text-decoration: none;
+                font-size: 15px; 
+            }
         }    
     }
 }
