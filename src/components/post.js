@@ -25,16 +25,16 @@ class Post extends Component {
             )
         } else if(this.props.type === 'result') {
             return (
-                <li className="result-post">
+                <li className="result-post"
+                    onMouseEnter={() => this.setState({ height: 70 })}
+                    onMouseLeave={() => this.setState({ height: 0 })}
+                >
                     <div className="result-post__topics">
                         {this.props.ability.name}
                     </div>
 
                     <div className='result-post__title'>
-                        <a href={this.props.ability.url}
-                           onMouseEnter={() => this.setState({ height: 70 })}
-                           onMouseLeave={() => this.setState({ height: 0 })}
-                        >
+                        <a href={this.props.ability.url}>
                             ABILITY API
                         </a>
                     </div>
@@ -44,7 +44,12 @@ class Post extends Component {
                         height={this.state.height}
                     >
                         <div className="result-post__links">
-                            <a href={this.props.ability.url}>LINK</a>
+                            <div className='post-link'>
+                                <div className='post-link__box'></div>
+                                <div className='post-link__link'>
+                                    <a href={this.props.ability.url}>API LINK</a>
+                                </div>
+                            </div>
                         </div>
                     </AnimateHeight>
                 </li>
